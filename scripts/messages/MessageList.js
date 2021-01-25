@@ -28,13 +28,12 @@ const render = messageArray => {
     component is clicked.
 */
 
-document.querySelector(".themes").addEventListener("click", e => {
-    const idOfClickedElement = e.target.id
+const eventHub = document.querySelector(".container")
 
-    if (idOfClickedElement.startsWith("themeButton--")) {
-        const [prefix, color] = idOfClickedElement.split("--")
-        contentTarget.classList = []
-        contentTarget.classList.add(color)
-        
-    }
+eventHub.addEventListener("colorChosen", e => {
+    const color = e.detail.color
+
+    contentTarget.classList = []
+    contentTarget.classList.add(color)
+
 })
